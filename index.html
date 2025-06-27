@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domino's Pizza - India's Favourite Pizza Delivery Company</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5s9iRJd6qbAblgaIm2z0Nh0bTPnNYUJEkVg&s" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Header -->
+
+
+
+    <header class="dominos-header">
+        <div class="location">
+            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+            <div class="user-location-bar">
+           
+            <span id="user-location-main" class="location-main" style="color:#e21b22;font-weight:700;">Detecting...</span>
+            <span class="location-dropdown">&#9660;</span>
+           <div id="user-location-detail" class="location-detail" style="color:#222; font-size:10px;">Getting your address...</div>
+</div>
+         
+        </div>
+
+        <!-- Cheesy Rewards Card (like your 2nd image) -->
+<div id="cheesyRewardsCard" class="cheesy-rewards-card">
+  <div class="cheesy-pizza-pie">
+    <!-- SVG pizza pie, matching Domino's style -->
+    <svg width="20" height="20" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="18" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="2"/>
+      <g stroke="#d3d3d3" stroke-width="2">
+        <line x1="20" y1="20" x2="38" y2="20"/>
+        <line x1="20" y1="20" x2="20" y2="2"/>
+        <line x1="20" y1="20" x2="6.2" y2="8.2"/>
+        <line x1="20" y1="20" x2="6.2" y2="31.8"/>
+        <line x1="20" y1="20" x2="20" y2="38"/>
+        <line x1="20" y1="20" x2="33.8" y2="31.8"/>
+        <line x1="20" y1="20" x2="33.8" y2="8.2"/>
+      </g>
+    </svg>
+    <span class="cheesy-points"><strong>0</strong>/600</span>
+  </div>
+</div>
+<!-- Modal Overlay -->
+<div id="cheesyRewardsModal" class="modal-overlay" style="display:none;">
+  <div class="modal-content">
+    <button id="closeCheesyModal" class="close-btn">&times;</button>
+    <!-- You can use your real HTML here. For demo, using screenshot: -->
+    <img src="rewards.png" 
+         alt="Cheesy Rewards Details" style="width:100%;border-radius:2px;">
+  </div>
+</div>
+
+
+
+       <!-- Profile Icon (Trigger) -->
+<div class="profile" id="profileIcon">
+  <img src="https://cdn-icons-png.flaticon.com/512/64/64572.png" alt="User" />
+</div>
+
+<!-- Profile Sidebar Menu -->
+<div class="profile-sidebar" id="profileSidebar">
+  <div class="profile-sidebar-header">
+    <img src="https://cdn-icons-png.flaticon.com/512/64/64572.png" alt="User" class="profile-sidebar-avatar" />
+    <div class="profile-sidebar-info">
+      <span class="profile-sidebar-offer">Login for<br><b>Exclusive Offers</b></span>
+    </div>
+    <button class="profile-sidebar-login">Login</button>
+    <!-- Login Modal -->
+<div id="loginModal" class="login-modal">
+  <div class="login-modal-content">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Dominos_pizza_logo.svg" alt="Domino's Logo" class="login-logo">
+    <button class="login-skip" id="loginSkip">Skip</button>
+    <h2>Login to unlock awesome benefits</h2>
+    <div class="login-benefits">
+      <div><img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="" /> Personalized Offers</div>
+      <div><img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="" /> Loyalty Rewards</div>
+      <div><img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="" /> Easy Payments</div>
+    </div>
+    <form class="login-form" onsubmit="return false;">
+      <label for="loginMobile">Mobile Number</label>
+      <div class="login-mobile-input">
+        <span>+91</span>
+        <input type="tel" id="loginMobile" maxlength="10" placeholder="Enter mobile number" required>
+      </div>
+      <div class="login-terms">
+        By going forward you accept our <a href="#">Terms & Conditions</a>
+      </div>
+      <button class="login-send-otp" id="loginSendOtp" disabled>Send OTP</button>
+    </form>
+  </div>
+</div>
+
+  </div>
+  <ul class="profile-sidebar-list">
+    <li>Deals & Offers</li>
+    <div id="offersSection" class="offers-section">
+  <div class="offers-header">
+    <span class="offers-back" id="offersBack">&#8592;</span>
+    <span class="offers-title">Coupons</span>
+  </div>
+  <div class="offers-grid">
+    <div class="offer-card">
+      <div class="offer-left">
+        <div class="offer-code">CHEESY80</div>
+        <div class="offer-desc">Up to ₹80 Off on orders worth ₹249 or more</div>
+        <a href="#" class="offer-more">More details <span>&#9660;</span></a>
+      </div>
+      <div class="offer-right">
+        <div class="offer-save">Save up to<br><b>₹80</b> with this offer</div>
+        <button class="offer-apply">Apply</button>
+      </div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-left">
+        <div class="offer-code offer-code-badge"><span class="offer-badge">OFF</span>PIZZA30</div>
+        <div class="offer-desc">Up to ₹30 Off on orders of ₹200 or more</div>
+        <a href="#" class="offer-more">More details <span>&#9660;</span></a>
+      </div>
+      <div class="offer-right">
+        <div class="offer-save">Save up to<br><b>₹30</b> with this offer</div>
+        <button class="offer-apply">Apply</button>
+      </div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-left">
+        <div class="offer-code">PARTY15</div>
+        <div class="offer-desc">Up to ₹300 off on orders worth ₹2000 or more</div>
+        <a href="#" class="offer-more">More details <span>&#9660;</span></a>
+      </div>
+      <div class="offer-right">
+        <div class="offer-save">Save up to<br><b>₹300</b> with this offer</div>
+        <button class="offer-apply">Apply</button>
+      </div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-left">
+        <div class="offer-code">PARTY20</div>
+        <div class="offer-desc">Up to ₹500 off on orders worth ₹2500 or more</div>
+        <a href="#" class="offer-more">More details <span>&#9660;</span></a>
+      </div>
+      <div class="offer-right">
+        <div class="offer-save">Save up to<br><b>₹500</b> with this offer</div>
+        <button class="offer-apply">Apply</button>
+      </div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-left">
+        <div class="offer-code">PARTY25</div>
+        <div class="offer-desc">Up to ₹750 Off on orders worth ₹3000 or more</div>
+        <a href="#" class="offer-more">More details <span>&#9660;</span></a>
+      </div>
+      <div class="offer-right">
+        <div class="offer-save">Save up to<br><b>₹750</b> with this offer</div>
+        <button class="offer-apply">Apply</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <li>Track Current Order</li>
+    <div id="trackOrderSection" class="track-order-section" style="display:none">
+  <div class="track-header">
+    <span class="track-back" id="trackBack">&#8592;</span>
+    <img src="https://www.dominos.co.in/assets/Logo.png" alt="Domino's Pizza" class="track-logo" />
+    <span class="track-title">Domino's Pizza</span>
+    <span class="track-account">MY ACCOUNT<br><a href="#">Login | Signup</a></span>
+  </div>
+  <div class="track-content">
+    <div class="track-box">
+      <div class="track-login-row">
+        <img src="https://cdn.pixabay.com/photo/2016/03/31/19/57/compass-1294691_1280.png" alt="Track" class="track-img" />
+        <div>
+          <span class="track-in-one-click">TRACK YOUR ORDERS IN ONE CLICK</span>
+          <button class="track-login-btn">LOGIN</button>
+        </div>
+      </div>
+    </div>
+    <div class="track-box">
+      <form class="track-form">
+        <label>Mobile Number</label>
+        <div class="track-mobile-row">
+          <span class="track-country-code">+91</span>
+          <input type="tel" placeholder=" " class="track-input" maxlength="10" required>
+        </div>
+        <label>Order ID:*</label>
+        <input type="text" placeholder=" " class="track-input" required>
+        <button type="submit" class="track-submit" disabled>SUBMIT</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+    <li>Order History</li>
+    <div id="orderHistorySection" class="order-history-section" style="display: none;">
+  <div class="order-history-header">
+    <span class="order-history-back" id="orderHistoryBack">&#8592;</span>
+    <span class="order-history-title">Order History</span>
+  </div>
+  <div class="order-history-list">
+    <!-- Example Order Card -->
+    <div class="order-card">
+      <div class="order-card-row">
+        <div>
+          <div class="order-card-id">Order ID: <b>DOM123456789</b></div>
+          <div class="order-card-date">Placed on: 14 Jun 2025, 1:30 PM</div>
+        </div>
+        <div class="order-card-status delivered">Delivered</div>
+      </div>
+      <div class="order-card-details">
+        <div class="order-card-item">
+          <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/05e8ba85-4444-4c19-b085-8012f1baf0b4_margherita_side.webp?ver=V0.0.1" alt="Margherita" />
+          <span>Margherita (Regular)</span>
+        </div>
+        <div class="order-card-item">
+          <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/a718c4d8-de90-476b-b9fc-7e6b42fc6ffe_plain_GB_side.webp?ver=V0.0.1" alt="Garlic Breadsticks" />
+          <span>Garlic Breadsticks</span>
+        </div>
+      </div>
+      <div class="order-card-footer">
+        <span>Total: <b>₹358</b></span>
+        <button class="order-card-repeat">REPEAT ORDER</button>
+      </div>
+    </div>
+    <!-- Add more order cards as needed -->
+    <div class="order-card">
+      <div class="order-card-row">
+        <div>
+          <div class="order-card-id">Order ID: <b>DOM987654321</b></div>
+          <div class="order-card-date">Placed on: 10 Jun 2025, 7:45 PM</div>
+        </div>
+        <div class="order-card-status cancelled">Cancelled</div>
+      </div>
+      <div class="order-card-details">
+        <div class="order-card-item">
+          <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/ff2e39b8-87cc-4f3f-a2f5-06198a85f3df_peppy_paneer_side.webp?ver=V0.0.1" alt="Peppy Paneer" />
+          <span>Peppy Paneer (Medium)</span>
+        </div>
+      </div>
+      <div class="order-card-footer">
+        <span>Total: <b>₹449</b></span>
+        <button class="order-card-repeat">REPEAT ORDER</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <li>Feedback</li>
+      
+    <div id="feedbackSection" class="feedback-section" style="display: none;">
+  <div class="feedback-header">
+    <span class="feedback-back" id="feedbackBack">&#8592;</span>
+    <span class="feedback-title">Feedback</span>
+  </div>
+  <div class="feedback-content">
+    <div class="feedback-card">
+      <form class="feedback-form">
+        <h3>Your Experience</h3>
+        <p>We’d love to hear what you think about Domino’s, our products and service—both the good and the bad.</p>
+        <div class="feedback-field">
+          <label>Name</label>
+          <input type="text" placeholder="Your name" required>
+        </div>
+        <div class="feedback-field">
+          <label>Email</label>
+          <input type="email" placeholder="Your email (optional)">
+        </div>
+        <div class="feedback-field">
+          <label>Mobile Number</label>
+          <input type="tel" placeholder="Your mobile number (optional)">
+        </div>
+        <div class="feedback-field">
+          <label>Feedback</label>
+          <textarea placeholder="Let us know what we did well or what we can improve"></textarea>
+        </div>
+        <button type="submit" class="feedback-submit">SUBMIT</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <li>Terms & Conditions</li>
+    <!-- Terms & Conditions Section (hidden by default) -->
+<div id="termsSection" class="terms-section">
+  <div class="terms-header">
+    <span class="terms-back" id="termsBack">&#8592;</span>
+    <span class="terms-title">Terms & Conditions</span>
+  </div>
+  <div class="terms-content">
+    <h2 class="terms-disclaimer">Disclaimer</h2>
+    <div class="terms-list">
+      <div class="terms-item">
+        <div class="terms-item-title">Everyday Value Offers <span class="terms-toggle">+</span></div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-item-title">Order Delivery <span class="terms-toggle">+</span></div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-item-title">Menu <span class="terms-toggle">+</span></div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-item-title">NONG (No Onion No Garlic) Pizza T&C <span class="terms-toggle">+</span></div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-item-title">Modify / Cancel the Online Order <span class="terms-toggle">+</span></div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-item-title">Service Guarantee <span class="terms-toggle">+</span></div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-item-title">Delivery Charges <span class="terms-toggle">+</span></div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-item-title">Late Night Delivery <span class="terms-toggle">+</span></div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-item-title">Cashback or Discount on Payment page: <span class="terms-toggle">+</span></div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-item-title">T & C for E Gift Card <span class="terms-toggle">+</span></div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-item-title">T & C for Gift Card <span class="terms-toggle">+</span></div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-item-title">Domino's Wallet <span class="terms-toggle">+</span></div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-item-title">EDV Mix & Match <span class="terms-toggle">+</span></div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-item-title">Pizzas at 49 <span class="terms-toggle">+</span></div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-item-title">IRCTC <span class="terms-toggle">+</span></div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-item-title">Information Security <span class="terms-toggle">+</span></div>
+      </div>
+      <div class="terms-item">
+        <div class="terms-item-title">Saved Cards <span class="terms-toggle">+</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <li>Bulk Order</li>
+    <div id="bulkOrderSection" class="bulk-order-section">
+  <div class="bulk-header">
+    <span class="bulk-back" id="bulkBack">&#8592;</span>
+    <span class="bulk-title">Virtual Pizza Party</span>
+  </div>
+  <div class="bulk-content">
+    <div class="bulk-left">
+      <img src="https://www.dominos.co.in/theme2/front/images/corp_query/virtual_pizza_party@3x.png" alt="Virtual Party Banner" class="bulk-banner" />
+      <h2>WORK TOGETHER, EAT TOGETHER</h2>
+      <p class="bulk-desc">
+        As virtual parties have become the new way to bond and enjoy together, it’s time to up these unique celebrations with a unique feast.
+      </p>
+      <div class="bulk-highlight">
+        Introducing Domino’s Virtual Feast, a new way to place a bulk order for your virtual celebration and get it delivered in specially designed packages.
+      </div>
+    </div>
+    <div class="bulk-right">
+      <form class="bulk-form">
+        <h3>Contact Us</h3>
+        <p class="bulk-form-desc">Please let us know your query</p>
+        <input type="text" placeholder="Name*" required>
+        <input type="text" placeholder="Organisation">
+        <input type="tel" placeholder="Contact Number*" required>
+        <input type="email" placeholder="Email ID*" required>
+        <input type="text" placeholder="Location: Area / City / State">
+        <input type="date" placeholder="Tentative Order Date">
+        <textarea placeholder="Your Query"></textarea>
+        <button type="submit" class="bulk-submit">SUBMIT</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+    <li>Nutritional Information</li>
+    <div id="nutritionSection" class="nutrition-section">
+  <div class="nutrition-header">
+    <span class="nutrition-back" id="nutritionBack">&#8592;</span>
+    <span class="nutrition-title">Nutritional Information</span>
+  </div>
+  <div class="nutrition-content">
+    <img src="https://m.dominos.co.in/jfl-discovery-ui/public/dist/default/images/global/nutrition/MNI-01.jpg" alt="Baking Goodness"  />
+    <img src="https://m.dominos.co.in/jfl-discovery-ui/public/dist/default/images/global/nutrition/MNI-02.jpg" alt="">
+    <img src="https://m.dominos.co.in/jfl-discovery-ui/public/dist/default/images/global/nutrition/MNI-03.jpg" alt="">
+    <img src="https://m.dominos.co.in/jfl-discovery-ui/public/dist/default/images/global/nutrition/MNI-04.jpg" alt="">
+    <img src="https://m.dominos.co.in/jfl-discovery-ui/public/dist/default/images/global/nutrition/MNI-04.jpg" alt="">
+    <img src="https://m.dominos.co.in/jfl-discovery-ui/public/dist/default/images/global/nutrition/MNI-06.jpg" alt="">
+    <img src="https://m.dominos.co.in/jfl-discovery-ui/public/dist/default/images/global/nutrition/MNI-06.jpg" alt="">
+    <img src="https://m.dominos.co.in/jfl-discovery-ui/public/dist/default/images/global/nutrition/MNI-07.jpg" alt="">
+    <img src="https://m.dominos.co.in/jfl-discovery-ui/public/dist/default/images/global/nutrition/MNI-15.jpg" alt="">
+     
+</div>
+
+  </ul>
+  <div class="profile-sidebar-version">V0.0.1</div>
+</div>
+<div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    </header>
+
+
+
+
+    <section class="order-type">
+        <button class="order-btn active">Delivery <span>⚡ 20 Mins</span></button>
+        <button class="order-btn"> Takeaway <span>Select Store</span></button>
+        <button class="order-btn"> Dine-in <span>Select Store</span></button>
+    </section>
+
+
+    <!-- Takeaway -->
+
+
+    <section class="takeaway-modal" id="takeawayModal">
+  <div class="takeaway-header">
+    <span class="back-arrow" id="closeTakeaway">&#8592;</span>
+    <span class="takeaway-title">Takeaway</span>
+  </div>
+  <div class="takeaway-location-row">
+    <span class="location-icon"><img src="loc.png" alt="location"></span>
+    <span class="your-location-label">Your Location</span>
+    <span class="your-location-value">DOMBIVALI WEST MUMBAI MAHARASHTRA</span>
+    <button class="change-location">CHANGE</button>
+  </div>
+  <div class="takeaway-restaurants-title">Restaurant(s) Near Your Location</div>
+  <div class="takeaway-cards-row">
+    <!-- Card 1 -->
+    <div class="takeaway-card">
+      <div class="card-title-row">
+        <img src="CMYK_Blue_Type_Vert.jpg" alt="Domino's" class="dominos-logo" />
+        <span class="card-title">DOMBIVALI WEST MUMBAI MAHARASHTRA</span>
+      </div>
+      <div class="card-address">Ground Floor Shop No 5 6 7 CTS No 1385 1426 3PT 1427 Neerav Co Op Hsg M G Road Dombivali West Mumbai 421202 Maharashtra</div>
+      <div class="card-info-row">
+        <span>Open<br><b>10:59AM to 11:59PM</b></span>
+        <span>Distance<br><b>Less than 100 m</b></span>
+      </div>
+      <div class="card-actions-row">
+        <a href="https://maps.app.goo.gl/SBVKdCjV3XGQAqATA" class="view-map-link">View on map</a>
+        <button class="select-btn">SELECT</button>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="takeaway-card">
+      <div class="card-title-row">
+        <img src="CMYK_Blue_Type_Vert.jpg" alt="Domino's" class="dominos-logo" />
+        <span class="card-title">CHIPLUNKAR ROAD, DOMBIVALI</span>
+      </div>
+      <div class="card-address">Shop No.1, Maitri -Radha Damodar Cooperative Housing Society, Ayre Road, Dombivli East-421201</div>
+      <div class="card-info-row">
+        <span>Open<br><b>10:55AM to 11:55PM</b></span>
+        <span>Distance<br><b>0.7 km</b></span>
+      </div>
+      <div class="card-actions-row">
+        <a href="https://maps.app.goo.gl/SBVKdCjV3XGQAqATA" class="view-map-link">View on map</a>
+        <button class="select-btn">SELECT</button>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="takeaway-card">
+      <div class="card-title-row">
+        <img src="CMYK_Blue_Type_Vert.jpg" alt="Domino's" class="dominos-logo" />
+        <span class="card-title">SONAL BUSINESS PARK DOMBIVALI E MAHARASHTRA</span>
+      </div>
+      <div class="card-address">SONAL BUSINESS PARK Plot No RP 137 Golivli Taluka Kalyan Dombivali E District Thane Mumbai 421203 Maharashtra</div>
+      <div class="card-info-row">
+        <span>Open<br><b>10:59AM to 11:59PM</b></span>
+        <span>Distance<br><b>1.4 km</b></span>
+      </div>
+      <div class="card-actions-row">
+        <a href="https://maps.app.goo.gl/SBVKdCjV3XGQAqATA" class="view-map-link">View on map</a>
+        <button class="select-btn">SELECT</button>
+      </div>
+    </div>
+  </div>
+  <div class="takeaway-footer-row">
+    <a href="#" class="view-more-link">View more restaurants</a>
+  </div>
+</section>
+
+
+
+<!-- dine in -->
+
+
+<section class="dinein-section" id="dineinSection" style="display:none";>
+  <div class="dinein-header-row">
+    <span class="dinein-back" id="dineinBack">&#8592;</span>
+    <span class="dinein-title">Dine In</span>
+  </div>
+  <div class="dinein-location-row">
+    <span class="dinein-location-icon">&#x1F4CD;</span>
+    <span class="dinein-location-label">Your Location</span>
+    <span class="dinein-location-value">DOMBIVALI WEST MUMBAI MAHARASHTRA</span>
+    <button class="dinein-change-btn">CHANGE</button>
+  </div>
+  <div class="dinein-restaurants-title">Restaurant(s) Near Your Location</div>
+  <div class="dinein-restaurant-row">
+    <!-- Card 1 -->
+    <div class="dinein-card">
+      <div class="dinein-card-title-row">
+        <img src="CMYK_Blue_Type_Vert.jpg" alt="Domino's" class="dinein-dominos-logo" />
+        <span class="dinein-card-title">DOMBIVALI WEST MUMBAI MAHARASHTRA</span>
+      </div>
+      <div class="dinein-card-address">Ground Floor Shop No 5 6 7 CTS No 1385 1426 3PT 1427 Neerav Co Op Hsg M G Road Dombivali West Mumbai 421202 Maharashtra</div>
+      <div class="dinein-card-info-row">
+        <span>Open<br><b>10:59AM to 11:59PM</b></span>
+        <span>Distance<br><b>Less than 100 m</b></span>
+      </div>
+      <div class="dinein-card-actions-row">
+        <a href="#" class="dinein-view-map-link">View on map</a>
+        <button class="dinein-select-btn">SELECT</button>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="dinein-card">
+      <div class="dinein-card-title-row">
+        <img src="CMYK_Blue_Type_Vert.jpg" alt="Domino's" class="dinein-dominos-logo" />
+        <span class="dinein-card-title">CHIPLUNKAR ROAD, DOMBIVALI</span>
+      </div>
+      <div class="dinein-card-address">Shop No.1, Maitri -Radha Damodar Cooperative Housing Society, Ayre Road, Dombivli East-421201</div>
+      <div class="dinein-card-info-row">
+        <span>Open<br><b>10:55AM to 11:55PM</b></span>
+        <span>Distance<br><b>0.8 km</b></span>
+      </div>
+      <div class="dinein-card-actions-row">
+        <a href="#" class="dinein-view-map-link">View on map</a>
+        <button class="dinein-select-btn">SELECT</button>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="dinein-card">
+      <div class="dinein-card-title-row">
+        <img src="CMYK_Blue_Type_Vert.jpg" alt="Domino's" class="dinein-dominos-logo" />
+        <span class="dinein-card-title">SONAL BUSINESS PARK DOMBIVALI E MAHARASHTRA</span>
+      </div>
+      <div class="dinein-card-address">SONAL BUSINESS PARK DOMBIVALI E MAHARASHTRA G 13 14 Sonal Business Park Plot No RP 137 Golivli Taluka Kalyan Dombivali E District Thane Mumbai 421203 Maharashtra</div>
+      <div class="dinein-card-info-row">
+        <span>Open<br><b>10:59AM to 11:59PM</b></span>
+        <span>Distance<br><b>1.4 km</b></span>
+      </div>
+      <div class="dinein-card-actions-row">
+        <a href="#" class="dinein-view-map-link">View on map</a>
+        <button class="dinein-select-btn">SELECT</button>
+      </div>
+    </div>
+  </div>
+  <div class="dinein-footer-row">
+    <a href="#" class="dinein-view-more-link">View more restaurants</a>
+  </div>
+</section>
+
+
+
+<!-- craving section -->
+    <section class="craving-section">
+        <h2>What are you craving for?</h2>
+        <div class="craving-scroll">
+            <div class="craving-item">
+                <a href="#menu"><img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/CategoriesV1/c0b7f15b-4e78-4503-a544-c3ac2e2fa5d2_BigBigPizza.png?ver=V0.0.1"
+                    alt="Big Pizza" /></a>
+                
+                <p>Big Big Pizza</p>
+            </div>
+            <div class="craving-item">
+               <a href="#menu"> <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/CategoriesV1/f9647852-c764-4869-af40-de98c67dea6f_ChickenFiesta.png?ver=V0.0.1.jpg"
+                    alt="Chicken Feast" /></a>
+                <p>Chicken Feast</p>
+            </div>
+            <div class="craving-item">
+               <a href="#menu"> <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/CategoriesV1/d34e938f-630a-44c2-a141-47ef32fd75f2_LunchFeastCoke.png?ver=V0.0.1"
+                    alt="5 Course Meal" /></a>
+                <p>5 Course Meal</p>
+            </div>
+            <div class="craving-item">
+                <a href="#menu"><img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/CategoriesV1/6bd3f26c-8a0e-457d-bc7b-86b9b374ff0a_cheeseburst.jpg?ver=V0.0.1"
+                    alt="Cheese Burst" /></a>
+                <p>Cheese Burst Pizza</p>
+            </div>
+            <div class="craving-item">
+               <a href="#menu"><img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/CategoriesV1/680b30be-452f-4006-980d-106226fcf6d5_VegPizza.png?ver=V0.0.1"
+                    alt="Veg Pizza" /></a> 
+                <p>Veg Pizza</p>
+            </div>
+            <div class="craving-item">
+                <a href="#menu"><img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/CategoriesV1/c924ba6e-ed72-4637-b7c5-ac13b4e5ac26_Nonveg.png?ver=V0.0.1"
+                    alt="Garlic Breads" /></a>
+                <p>Non-Veg Pizza</p>
+            </div>
+            <div class="craving-item">
+                <a href="#menu"><img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/CategoriesV1/e0bda59e-4b0c-477d-9627-4c8ae4b10eb6_PizzaManianew.png?ver=V0.0.1"
+                    alt="Garlic Breads" /></a>
+                <p>Pizza Mania</p>
+            </div>
+            <div class="craving-item">
+               <a href="#menu"><img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/CategoriesV1/ab731309-789d-4d41-8ff0-5a8bf4340c18_cheesevolcano.jpg?ver=V0.0.1"
+                    alt="Garlic Breads" /></a> 
+                <p>Non-Veg Pizza</p>
+            </div>
+            <div class="craving-item">
+              <a href="#menu"><img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/CategoriesV1/b59fe7b1-d656-401b-a3a4-4f6a42173415_garlicbread.jpg?ver=V0.0.1"
+                    alt="Garlic Breads" /></a>  
+                <p>Garlic Breads & More</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="bestsellers">
+        <div id="crown">
+            <img src="aAkqT7DxtxYFTQfcAuPU9XM1e2zYY21KngQDeXBz.png" alt="crown">
+        </div>
+        <h2>Top 10 Bestsellers </h2>
+        <p class="p-fade"><i class="fa-solid fa-location-dot"></i> <span>In Mumbai</span></p>
+        <!-- 1. Cheese & Corn -->
+    <div class="pizza-scroll-row">
+  <!-- Card 1: Cheese & Corn -->
+  <div class="pizza-card" >
+    <div class="pizza-img-wrap">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/1fd7cfcb-75e7-45b1-94d5-b54d32cf814e_PMGoldenCornHome.jpg?ver=V0.0.1" alt="Cheese & Corn">
+      <span class="top-badge"><img src="top.png" alt=""></span>
+      <button class="customise-btn">Customise &gt;</button>
+    </div>
+    <div class="pizza-card-details" >
+      <div class="pizza-title-row">
+        <span class="veg-icon"></span>
+        <span class="pizza-title">Cheese & Corn</span>
+      </div>
+      <div class="pizza-desc">Sweet corn and double cheese on a crispy crust.</div>
+      <div class="pizza-footer">
+        <div>
+          <span class="pizza-price">₹209</span>
+          <span class="pizza-crust">Regular | New Hand Tossed</span>
+        </div>
+        <button class="add-btn" >Add +</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2: Paneer Makhani -->
+  <div class="pizza-card">
+    <div class="pizza-img-wrap">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/28012ab8-104b-4a76-b13b-b1d98c5805af_PMOnionCapsicumPaneerHome.jpg?ver=V0.0.1" alt="Paneer Makhani">
+      <span class="top-badge"><img src="top.png" alt=""></span>
+      <button class="customise-btn">Customise &gt;</button>
+    </div>
+    <div class="pizza-card-details">
+      <div class="pizza-title-row">
+        <span class="veg-icon"></span>
+        <span class="pizza-title">Paneer Makhani</span>
+      </div>
+      <div class="pizza-desc">Paneer, onion, capsicum with desi makhani sauce on a cheesy crust.</div>
+      <div class="pizza-footer">
+        <div>
+          <span class="pizza-price">₹279</span>
+          <span class="pizza-crust">Regular | New Hand Tossed</span>
+        </div>
+        <button class="add-btn">Add +</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3: Classic Onion & Capsicum -->
+  <div class="pizza-card">
+    <div class="pizza-img-wrap">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/1f840b33-7507-497d-bffb-80f1ca296260_PMClassicHome.jpg?ver=V0.0.1" alt="Classic Onion & Capsicum">
+      <span class="top-badge"><img src="top.png" alt=""></span>
+      <button class="customise-btn">Customise &gt;</button>
+    </div>
+    <div class="pizza-card-details">
+      <div class="pizza-title-row">
+        <span class="veg-icon"></span>
+        <span class="pizza-title">Classic Onion & Capsicum</span>
+      </div>
+      <div class="pizza-desc">Onion, capsicum and tomato on a classic crust.</div>
+      <div class="pizza-footer">
+        <div>
+          <span class="pizza-price">₹219</span>
+          <span class="pizza-crust">Regular | New Hand Tossed</span>
+        </div>
+        <button class="add-btn">Add +</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 4: Chicken Dominator -->
+  <div class="pizza-card">
+    <div class="pizza-img-wrap">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/HomeProductV1/a124eca5-86d1-49c3-87c3-8b5820f4f306_chickendominatorsidejpgFull2x2702.jpg?ver=V0.0.1" alt="Chicken Dominator">
+      <span class="top-badge"><img src="top.png" alt=""></span>
+      <button class="customise-btn">Customise &gt;</button>
+    </div>
+    <div class="pizza-card-details">
+      <div class="pizza-title-row">
+        <span class="nonveg-icon"></span>
+        <span class="pizza-title">Chicken Dominator</span>
+      </div>
+      <div class="pizza-desc">Double chicken, onion, capsicum, and red paprika on a spicy base.</div>
+      <div class="pizza-footer">
+        <div>
+          <span class="pizza-price">₹349</span>
+          <span class="pizza-crust">Regular | New Hand Tossed</span>
+        </div>
+        <button class="add-btn">Add +</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 5: Pepper Barbecue Chicken -->
+  <div class="pizza-card">
+    <div class="pizza-img-wrap">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/64800a6e-b68b-46be-9e99-8d7ae9cba826_Chk_pepp_GB_side.webp?ver=V0.0.1" alt="Pepper Barbecue Chicken">
+      <span class="top-badge"><img src="top.png" alt=""></span>
+      <button class="customise-btn">Customise &gt;</button>
+    </div>
+    <div class="pizza-card-details">
+      <div class="pizza-title-row">
+        <span class="nonveg-icon"></span>
+        <span class="pizza-title">Pepper Barbecue Chicken</span>
+      </div>
+      <div class="pizza-desc">Juicy chicken with pepper barbecue sauce on a smoky crust.</div>
+      <div class="pizza-footer">
+        <div>
+          <span class="pizza-price">₹329</span>
+          <span class="pizza-crust">Regular | New Hand Tossed</span>
+        </div>
+        <button class="add-btn">Add +</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 6: Chicken Golden Delight -->
+  <div class="pizza-card">
+    <div class="pizza-img-wrap">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/1c24a762-9bdf-4b1d-a5ed-23c4ebf16036_golden_delight_side.webp?ver=V0.0.1" alt="Chicken Golden Delight">
+      <span class="top-badge"><img src="top.png" alt=""></span>
+      <button class="customise-btn">Customise &gt;</button>
+    </div>
+    <div class="pizza-card-details">
+      <div class="pizza-title-row">
+        <span class="nonveg-icon"></span>
+        <span class="pizza-title">Chicken Golden Delight</span>
+      </div>
+      <div class="pizza-desc">Double chicken, onion, and golden corn on a mozzarella base.</div>
+      <div class="pizza-footer">
+        <div>
+          <span class="pizza-price">₹339</span>
+          <span class="pizza-crust">Regular | New Hand Tossed</span>
+        </div>
+        <button class="add-btn">Add +</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 7: Veg Extravaganza -->
+  <div class="pizza-card">
+    <div class="pizza-img-wrap">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/a542d031-5fc8-4902-bbb3-25eebd3ace7e_veggie_paradise_side.webp?ver=V0.0.1" alt="Veg Extravaganza">
+      <span class="top-badge"><img src="top.png" alt=""></span>
+      <button class="customise-btn">Customise &gt;</button>
+    </div>
+    <div class="pizza-card-details">
+      <div class="pizza-title-row">
+        <span class="veg-icon"></span>
+        <span class="pizza-title">Veg Extravaganza</span>
+      </div>
+      <div class="pizza-desc">Loaded with black olives, onion, capsicum, mushroom, corn, and jalapeno.</div>
+      <div class="pizza-footer">
+        <div>
+          <span class="pizza-price">₹299</span>
+          <span class="pizza-crust">Regular | New Hand Tossed</span>
+        </div>
+        <button class="add-btn">Add +</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 8: Cheese & Tomato -->
+  <div class="pizza-card">
+    <div class="pizza-img-wrap">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/05e8ba85-4444-4c19-b085-8012f1baf0b4_margherita_side.webp?ver=V0.0.1" alt="Cheese & Tomato">
+      <span class="top-badge"><img src="top.png" alt=""></span>
+      <button class="customise-btn">Customise &gt;</button>
+    </div>
+    <div class="pizza-card-details">
+      <div class="pizza-title-row">
+        <span class="veg-icon"></span>
+        <span class="pizza-title">Cheese & Tomato</span>
+      </div>
+      <div class="pizza-desc">Classic cheese and tomato on a crispy crust.</div>
+      <div class="pizza-footer">
+        <div>
+          <span class="pizza-price">₹199</span>
+          <span class="pizza-crust">Regular | New Hand Tossed</span>
+        </div>
+        <button class="add-btn">Add +</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 9: Chicken Tikka -->
+  <div class="pizza-card">
+    <div class="pizza-img-wrap">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/feab85cb-a232-479f-9c10-e6cfc793deca_indi_chicken_side.webp?ver=V0.0.1" alt="Chicken Tikka">
+      <span class="top-badge"><img src="top.png" alt=""></span>
+      <button class="customise-btn">Customise &gt;</button>
+    </div>
+    <div class="pizza-card-details">
+      <div class="pizza-title-row">
+        <span class="nonveg-icon"></span>
+        <span class="pizza-title">Chicken Tikka</span>
+      </div>
+      <div class="pizza-desc">Juicy chicken tikka, onion, and capsicum on a spicy base.</div>
+      <div class="pizza-footer">
+        <div>
+          <span class="pizza-price">₹349</span>
+          <span class="pizza-crust">Regular | New Hand Tossed</span>
+        </div>
+        <button class="add-btn">Add +</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 10: Mexican Green Wave -->
+  <div class="pizza-card">
+    <div class="pizza-img-wrap">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/1f840b33-7507-497d-bffb-80f1ca296260_PMClassicHome.jpg?ver=V0.0.1" alt="Mexican Green Wave">
+      <span class="top-badge"><img src="top.png" alt=""></span>
+      <button class="customise-btn">Customise &gt;</button>
+    </div>
+    <div class="pizza-card-details">
+      <div class="pizza-title-row">
+        <span class="veg-icon"></span>
+        <span class="pizza-title">Mexican Green Wave</span>
+      </div>
+      <div class="pizza-desc">Onion, capsicum, tomato, jalapeno, and Mexican herbs.</div>
+      <div class="pizza-footer">
+        <div>
+          <span class="pizza-price">₹279</span>
+          <span class="pizza-crust">Regular | New Hand Tossed</span>
+        </div>
+        <button class="add-btn">Add +</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--     
+    <section class="chickenfest">
+        <div class="">
+
+        </div>
+
+    </section> -->
+
+
+
+ <section class="combo-section">
+  <div class="combo-header">
+    <img src="chicken.png" alt="Chicken" class="combo-icon">
+    <h2>Chicken Feast</h2>
+    <div class="combo-subtitle">Irresistibly Flavourful Chicken Delicacies!</div>
+  </div>
+  <div class="combo-scroll">
+    <!-- Combo Card 1 -->
+    <div class="combo-card">
+      <div class="combo-img-wrap">
+        <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/324131df-5847-4d33-b12e-702380bb783e_FullsizeHotfieryCheesikenrice.jpg?ver=V0.0.1" alt="Hot & Fiery Cheesiken Rice">
+        <span class="combo-badge">NEW</span>
+      </div>
+      <div class="combo-card-overlay">
+        <div class="combo-card-title-row">
+          <span class="nonveg-icon"></span>
+          <span class="combo-card-title">Hot & Fiery Cheesiken Rice</span>
+        </div>
+        <div class="combo-card-desc">Juicy Chicken | Spicy Guntur Chilli Sauce | Molten Cheese with Rice & Veggies - Onion, Black Olives & Capsicum.</div>
+        <div class="combo-card-bottom-row">
+          <span class="combo-card-price">₹209</span>
+          <button class="combo-add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <!-- Combo Card 2 -->
+    <div class="combo-card">
+      <div class="combo-img-wrap">
+        <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/47bab7b9-29ed-4969-8fd4-155b0fa97401_FullsizeGarlicCheesikenrice.jpg?ver=V0.0.1" alt="Garlic Cheesiken Rice">
+        <span class="combo-badge">NEW</span>
+      </div>
+      <div class="combo-card-overlay">
+        <div class="combo-card-title-row">
+          <span class="nonveg-icon"></span>
+          <span class="combo-card-title">Garlic Cheesiken Rice</span>
+        </div>
+        <div class="combo-card-desc">Juicy Chicken | Creamy Garlic Sauce | Molten Cheese with Rice & Veggies - Onion, Jalapeno & Capsicum.</div>
+        <div class="combo-card-bottom-row">
+          <span class="combo-card-price">₹209</span>
+          <button class="combo-add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <!-- Combo Card 3 -->
+    <div class="combo-card">
+      <div class="combo-img-wrap">
+        <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/4d289f6c-6c76-4988-8dad-abf12a2b5f76_FullsizeHotfieryCheesiken.jpg?ver=V0.0.1" alt="Hot & Fiery Cheesiken">
+        <span class="combo-badge">NEW</span>
+      </div>
+      <div class="combo-card-overlay">
+        <div class="combo-card-title-row">
+          <span class="nonveg-icon"></span>
+          <span class="combo-card-title">Hot & Fiery Cheesiken</span>
+        </div>
+        <div class="combo-card-desc">Juicy Chicken | Spicy Guntur Chilli Sauce | Molten Cheese with Veggies - Onion, Jalapeno & Capsicum.</div>
+        <div class="combo-card-bottom-row">
+          <span class="combo-card-price">₹159</span>
+          <button class="combo-add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <!-- Combo Card 4 -->
+    <div class="combo-card">
+      <div class="combo-img-wrap">
+        <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/e463f1e5-11f6-4207-af33-01ca3106b1b1_FullsizeGarlicCheesiken.jpg?ver=V0.0.1" alt="Garlic Cheesiken">
+        <span class="combo-badge">NEW</span>
+      </div>
+      <div class="combo-card-overlay">
+        <div class="combo-card-title-row">
+          <span class="nonveg-icon"></span>
+          <span class="combo-card-title">Garlic Cheesiken</span>
+        </div>
+        <div class="combo-card-desc">Juicy Chicken | Creamy Garlic Sauce | Molten Cheese with Veggies - Onion, Jalapeno & Capsicum.</div>
+        <div class="combo-card-bottom-row">
+          <span class="combo-card-price">₹159</span>
+          <button class="combo-add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <!-- Add more cards as needed -->
+  </div>
+</section>
+
+
+
+
+
+
+    <section class="cheese-volcano-section">
+  <div class="cheese-volcano-header">
+    <div class="cheese-volcano-icon"><img src="https://api.dominos.co.in/prod-olo-api/contents/home-cms/NmB2bYYIKx6JXvA4xXZvolZ0L7uhC9l1w0H0G265.png" alt=""></div>
+    <h2>Cheese Volcano</h2>
+    <div class="cheese-volcano-subtitle">Molten Cheese Indulgence</div>
+  </div>
+  <div class="cheese-volcano-cards">
+    <!-- Card 1 -->
+    <div class="cheese-volcano-card">
+      <div class="card-image-wrap">
+        <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/ff749958-795a-4c15-8cd4-3dd885cb2ef2_FullSizeVeggieParadise.jpg?ver=V0.0.1" alt="Cheese Volcano Veg Paradise" class="card-image">
+        <div class="card-ribbon">NEW</div>
+        <button class="card-customise">Customise &gt;</button>
+      </div>
+      <div class="card-content">
+        <div class="card-title-row">
+          <span class="veg-icon"></span>
+          <span class="card-title">Cheese Volcano Veg Paradise</span>
+        </div>
+        <div class="card-desc">Centre loaded with Molten Cheese & topped with Golden Corn, Black Olives, Capsicum & Red Paprika *Contains non-edible container under the Pizza.</div>
+        <div class="card-bottom-row">
+          <div>
+            <span class="card-price">₹309</span>
+            <span class="card-meta">Regular Plus | Cheese Volcano Crust</span>
+          </div>
+          <button class="add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="cheese-volcano-card">
+      <div class="card-image-wrap">
+        <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/dbebea5e-4c08-4de4-9f80-5aaa4f75cae4_FullSizeCheeseVolcanoBBQChicken.jpg?ver=V0.0.1" alt="Cheese Volcano BBQ Chicken" class="card-image">
+        <div class="card-ribbon">NEW</div>
+        <button class="card-customise">Customise &gt;</button>
+      </div>
+      <div class="card-content">
+        <div class="card-title-row">
+          <span class="nonveg-icon"></span>
+          <span class="card-title">Cheese Volcano BBQ Chicken</span>
+        </div>
+        <div class="card-desc">Centre loaded with Molten Cheese & topped with Pepper BBQ Chicken *Contains non-edible container under the Pizza.</div>
+        <div class="card-bottom-row">
+          <div>
+            <span class="card-price">₹359</span>
+            <span class="card-meta">Regular Plus | Cheese Volcano Crust</span>
+          </div>
+          <button class="card-add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="cheese-volcano-card">
+      <div class="card-image-wrap">
+        <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/91d8018d-f353-4358-9226-a31f55d5b8b2_FullSizeFarmhouse.jpg?ver=V0.0.1" alt="Cheese Volcano Farmhouse" class="card-image">
+        <button class="card-customise">Customise &gt;</button>
+      </div>
+      <div class="card-content">
+        <div class="card-title-row">
+          <span class="veg-icon"></span>
+          <span class="card-title">Cheese Volcano Farmhouse</span>
+        </div>
+        <div class="card-desc">Centre loaded with Molten Cheese & topped with Onion, Capsicum, Tomato & Grilled Mushroom *Contains non-edible container under the Pizza.</div>
+        <div class="card-bottom-row">
+          <div>
+            <span class="card-price">₹309</span>
+            <span class="card-meta">Regular Plus | Cheese Volcano Crust</span>
+          </div>
+          <button class="card-add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="cheese-volcano-card">
+      <div class="card-image-wrap">
+        <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/00ae34b9-dbf6-4788-bb79-b42513d5b474_volcanoHomePeppyPaneer.jpg?ver=V0.0.1" alt="Cheese Volcano Peppy Paneer" class="card-image">
+        <div class="card-ribbon">NEW</div>
+        <button class="card-customise">Customise &gt;</button>
+      </div>
+      <div class="card-content">
+        <div class="card-title-row">
+          <span class="veg-icon"></span>
+          <span class="card-title">Cheese Volcano Peppy Paneer</span>
+        </div>
+        <div class="card-desc">Centre loaded with Molten Cheese & topped with peppy Paneer, Capsicum & Red Paprika *Contains non-edible container under the Pizza.</div>
+        <div class="card-bottom-row">
+          <div>
+            <span class="card-price">₹309</span>
+            <span class="card-meta">Regular Plus | Cheese Volcano Crust</span>
+          </div>
+          <button class="card-add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+ <!-- card 5 -->
+       <div class="cheese-volcano-card">
+      <div class="card-image-wrap">
+        <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/00ae34b9-dbf6-4788-bb79-b42513d5b474_volcanoHomePeppyPaneer.jpg?ver=V0.0.1" alt="Cheese Volcano Peppy Paneer" class="card-image">
+        <div class="card-ribbon">NEW</div>
+        <button class="card-customise">Customise &gt;</button>
+      </div>
+      <div class="card-content">
+        <div class="card-title-row">
+          <span class="veg-icon"></span>
+          <span class="card-title">Cheese Volcano Peppy Paneer</span>
+        </div>
+        <div class="card-desc">Centre loaded with Molten Cheese & topped with peppy Paneer, Capsicum & Red Paprika *Contains non-edible container under the Pizza.</div>
+        <div class="card-bottom-row">
+          <div>
+            <span class="card-price">₹309</span>
+            <span class="card-meta">Regular Plus | Cheese Volcano Crust</span>
+          </div>
+          <button class="card-add-btn">Add +</button>
+        </div>
+      </div>
+      </div>
+       
+
+<!-- card 6 -->
+       <div class="cheese-volcano-card">
+      <div class="card-image-wrap">
+        <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/00ae34b9-dbf6-4788-bb79-b42513d5b474_volcanoHomePeppyPaneer.jpg?ver=V0.0.1" alt="Cheese Volcano Peppy Paneer" class="card-image">
+        <div class="card-ribbon">NEW</div>
+        <button class="card-customise">Customise &gt;</button>
+      </div>
+      <div class="card-content">
+        <div class="card-title-row">
+          <span class="veg-icon"></span>
+          <span class="card-title">Cheese Volcano Peppy Paneer</span>
+        </div>
+        <div class="card-desc">Centre loaded with Molten Cheese & topped with peppy Paneer, Capsicum & Red Paprika *Contains non-edible container under the Pizza.</div>
+        <div class="card-bottom-row">
+          <div>
+            <span class="card-price">₹309</span>
+            <span class="card-meta">Regular Plus | Cheese Volcano Crust</span>
+          </div>
+          <button class="card-add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+<!-- card7 -->
+       <div class="cheese-volcano-card">
+      <div class="card-image-wrap">
+        <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/00ae34b9-dbf6-4788-bb79-b42513d5b474_volcanoHomePeppyPaneer.jpg?ver=V0.0.1" alt="Cheese Volcano Peppy Paneer" class="card-image">
+        <div class="card-ribbon">NEW</div>
+        <button class="card-customise">Customise &gt;</button>
+      </div>
+      <div class="card-content">
+        <div class="card-title-row">
+          <span class="veg-icon"></span>
+          <span class="card-title">Cheese Volcano Peppy Paneer</span>
+        </div>
+        <div class="card-desc">Centre loaded with Molten Cheese & topped with peppy Paneer, Capsicum & Red Paprika *Contains non-edible container under the Pizza.</div>
+        <div class="card-bottom-row">
+          <div>
+            <span class="card-price">₹309</span>
+            <span class="card-meta">Regular Plus | Cheese Volcano Crust</span>
+          </div>
+          <button class="card-add-btn">Add +</button>
+        </div>
+      </div>
+
+  </div>
+</section>
+
+
+
+
+
+<!-- promo1 -->
+
+
+<div class="promo">
+<img src="https://pplx-res.cloudinary.com/image/upload/v1749917466/gpt4o_images/w6p1uddrmmclrlocitis.png" alt="">
+</div>
+
+<!-- Lunch feast section -->
+     
+
+
+<section class="lunch-feast-section">
+  <div class="lunch-header">
+    <img src="lunch.png" alt="Lunch Feast Icon" class="lunch-icon" />
+    <div>
+      <h2>Lunch Feast @ ₹149</h2>
+      <div class="lunch-subtitle">5 Course Meal With Pizza, Side, Dessert & More!</div>
+    </div>
+  </div>
+  <div class="feast-scroll">
+    <!-- Card 1 -->
+    <div class="feast-card">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/a52b70f2-01cb-42b8-ae4f-566df999115c_farmhouse_side.webp?ver=V0.0.1" alt="Farmhouse" />
+      <div class="feast-card-content">
+        <div class="feast-card-row">
+          <span class="veg-icon"></span>
+          <span class="feast-card-title">Farmhouse</span>
+          <button class="customise-btn">Customise &gt;</button>
+        </div>
+        <div class="feast-card-desc">Delightful combination of onion, capsicum, tomato & grilled mushroom.</div>
+        <div class="feast-card-bottom">
+          <span class="feast-card-price">₹259</span>
+          <span class="feast-card-crust">Regular | New Hand Tossed</span>
+          <button class="add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="feast-card">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/ff2e39b8-87cc-4f3f-a2f5-06198a85f3df_peppy_paneer_side.webp?ver=V0.0.1" alt="Peppy Paneer" />
+      <div class="feast-card-content">
+        <div class="feast-card-row">
+          <span class="veg-icon"></span>
+          <span class="feast-card-title">Peppy Paneer</span>
+          <button class="customise-btn">Customise &gt;</button>
+        </div>
+        <div class="feast-card-desc">Flavorful trio of juicy paneer, crisp capsicum with spicy red paprika.</div>
+        <div class="feast-card-bottom">
+          <span class="feast-card-price">₹249</span>
+          <span class="feast-card-crust">Regular | New Hand Tossed</span>
+          <button class="add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="feast-card">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/05e8ba85-4444-4c19-b085-8012f1baf0b4_margherita_side.webp?ver=V0.0.1" alt="Margherita" />
+      <div class="feast-card-content">
+        <div class="feast-card-row">
+          <span class="veg-icon"></span>
+          <span class="feast-card-title">Margherita</span>
+          <button class="customise-btn">Customise &gt;</button>
+        </div>
+        <div class="feast-card-desc">Classic delight with 100% real mozzarella cheese.</div>
+        <div class="feast-card-bottom">
+          <span class="feast-card-price">₹109</span>
+          <span class="feast-card-crust">Regular | New Hand Tossed</span>
+          <button class="add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="feast-card">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/a542d031-5fc8-4902-bbb3-25eebd3ace7e_veggie_paradise_side.webp?ver=V0.0.1" alt="Veggie Paradise" />
+      <div class="feast-card-content">
+        <div class="feast-card-row">
+          <span class="veg-icon"></span>
+          <span class="feast-card-title">Veggie Paradise</span>
+          <button class="customise-btn">Customise &gt;</button>
+        </div>
+        <div class="feast-card-desc">The awesome foursome! Golden corn, black olives, capsicum, red paprika.</div>
+        <div class="feast-card-bottom">
+          <span class="feast-card-price">₹259</span>
+          <span class="feast-card-crust">Regular | New Hand Tossed</span>
+          <button class="add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 5 -->
+    <div class="feast-card">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/1fd7cfcb-75e7-45b1-94d5-b54d32cf814e_PMGoldenCornHome.jpg?ver=V0.0.1" alt="Cheese & Corn" />
+      <div class="feast-card-content">
+        <div class="feast-card-row">
+          <span class="veg-icon"></span>
+          <span class="feast-card-title">Cheese & Corn</span>
+          <button class="customise-btn">Customise &gt;</button>
+        </div>
+        <div class="feast-card-desc">Sweet corn and double cheese on a crispy crust.</div>
+        <div class="feast-card-bottom">
+          <span class="feast-card-price">₹209</span>
+          <span class="feast-card-crust">Regular | New Hand Tossed</span>
+          <button class="add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 6 -->
+    <div class="feast-card">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/28012ab8-104b-4a76-b13b-b1d98c5805af_PMOnionCapsicumPaneerHome.jpg?ver=V0.0.1" alt="Paneer Makhani" />
+      <div class="feast-card-content">
+        <div class="feast-card-row">
+          <span class="veg-icon"></span>
+          <span class="feast-card-title">Paneer Makhani</span>
+          <button class="customise-btn">Customise &gt;</button>
+        </div>
+        <div class="feast-card-desc">Paneer, onion, capsicum with desi makhani sauce on a cheesy crust.</div>
+        <div class="feast-card-bottom">
+          <span class="feast-card-price">₹279</span>
+          <span class="feast-card-crust">Regular | New Hand Tossed</span>
+          <button class="add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 7 -->
+    <div class="feast-card">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/1f840b33-7507-497d-bffb-80f1ca296260_PMClassicHome.jpg?ver=V0.0.1" alt="Classic Onion & Capsicum" />
+      <div class="feast-card-content">
+        <div class="feast-card-row">
+          <span class="veg-icon"></span>
+          <span class="feast-card-title">Classic Onion & Capsicum</span>
+          <button class="customise-btn">Customise &gt;</button>
+        </div>
+        <div class="feast-card-desc">Onion, capsicum and tomato on a classic crust.</div>
+        <div class="feast-card-bottom">
+          <span class="feast-card-price">₹219</span>
+          <span class="feast-card-crust">Regular | New Hand Tossed</span>
+          <button class="add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 8 -->
+    <div class="feast-card">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/3d4ed1e5-6a7f-4b3e-8b5d-5b4e6e3e7c8b_veggie_paradise_side.webp?ver=V0.0.1" alt="Veggie Extravaganza" />
+      <div class="feast-card-content">
+        <div class="feast-card-row">
+          <span class="veg-icon"></span>
+          <span class="feast-card-title">Veg Extravaganza</span>
+          <button class="customise-btn">Customise &gt;</button>
+        </div>
+        <div class="feast-card-desc">Loaded with black olives, onion, capsicum, mushroom, corn, and jalapeno.</div>
+        <div class="feast-card-bottom">
+          <span class="feast-card-price">₹299</span>
+          <span class="feast-card-crust">Regular | New Hand Tossed</span>
+          <button class="add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 9 -->
+    <div class="feast-card">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/05e8ba85-4444-4c19-b085-8012f1baf0b4_margherita_side.webp?ver=V0.0.1" alt="Cheese & Tomato" />
+      <div class="feast-card-content">
+        <div class="feast-card-row">
+          <span class="veg-icon"></span>
+          <span class="feast-card-title">Cheese & Tomato</span>
+          <button class="customise-btn">Customise &gt;</button>
+        </div>
+        <div class="feast-card-desc">Classic cheese and tomato on a crispy crust.</div>
+        <div class="feast-card-bottom">
+          <span class="feast-card-price">₹199</span>
+          <span class="feast-card-crust">Regular | New Hand Tossed</span>
+          <button class="add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 10 -->
+    <div class="feast-card">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/a1b4e8c0-3cb5-44f2-b6e3-68ad58ce6ff2_zingy_parcel_v_side.webp?ver=V0.0.1" alt="Veg Parcel" />
+      <div class="feast-card-content">
+        <div class="feast-card-row">
+          <span class="veg-icon"></span>
+          <span class="feast-card-title">Veg Parcel</span>
+          <button class="customise-btn">Customise &gt;</button>
+        </div>
+        <div class="feast-card-desc">Snacky bites! Pizza rolls with paneer & creamy harissa sauce.</div>
+        <div class="feast-card-bottom">
+          <span class="feast-card-price">₹49</span>
+          <span class="feast-card-crust">Regular | New Hand Tossed</span>
+          <button class="add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- garlic bread section -->
+
+
+   <section class="garlic-scroll-section">
+  <div class="garlic-header-row">
+    <div>
+      <h2 class="garlic-title">
+        <img src="garlic.png" alt="Garlic Bread Icon" class="garlic-icon" />
+        Garlic Breads & Dips
+      </h2>
+      <div class="garlic-subtitle">Best Companions To Your Pizza</div>
+    </div>
+  </div>
+  <div class="garlic-scroll">
+    <div class="garlic-card bestseller">
+      <div class="garlic-card-img-wrap">
+        <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/a1b4e8c0-3cb5-44f2-b6e3-68ad58ce6ff2_zingy_parcel_v_side.webp?ver=V0.0.1" alt="Veg Parcel" />
+        <span class="bestseller-badge">BESTSELLER</span>
+      </div>
+      <div class="garlic-card-content">
+        <div class="garlic-card-title-row">
+          <span class="veg-icon"></span>
+          <span class="garlic-card-title">Veg Parcel</span>
+        </div>
+        <div class="garlic-card-desc">Snacky bites! Pizza rolls with paneer & creamy harissa sauce.</div>
+        <div class="garlic-card-bottom-row">
+          <span class="garlic-card-price">₹49</span>
+          <button class="garlic-add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <div class="garlic-card bestseller">
+      <div class="garlic-card-img-wrap">
+        <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/3bc1a744-6c87-4a1e-9705-d9c4f32bbb98_nv_taco_side.webp?ver=V0.0.1" alt="Cheesy Dip" />
+        <span class="bestseller-badge">BESTSELLER</span>
+      </div>
+      <div class="garlic-card-content">
+        <div class="garlic-card-title-row">
+          <span class="veg-icon"></span>
+          <span class="garlic-card-title">Cheesy Dip</span>
+        </div>
+        <div class="garlic-card-desc">An all-time favorite with your Garlic Breadsticks & Stuffed Garlic Bread for a Cheesy indulgence.</div>
+        <div class="garlic-card-bottom-row">
+          <span class="garlic-card-price">₹30</span>
+          <button class="garlic-add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <div class="garlic-card bestseller">
+      <div class="garlic-card-img-wrap">
+        <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/a718c4d8-de90-476b-b9fc-7e6b42fc6ffe_plain_GB_side.webp?ver=V0.0.1" alt="Classic Stuffed Garlic Bread" />
+        <span class="bestseller-badge">BESTSELLER</span>
+      </div>
+      <div class="garlic-card-content">
+        <div class="garlic-card-title-row">
+          <span class="veg-icon"></span>
+          <span class="garlic-card-title">Classic Stuffed Garlic Bread</span>
+        </div>
+        <div class="garlic-card-desc">Freshly baked garlic bread with cheese, juicy corn & tangy jalapeno.</div>
+        <div class="garlic-card-bottom-row">
+          <span class="garlic-card-price">₹149</span>
+          <button class="garlic-add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <div class="garlic-card bestseller">
+      <div class="garlic-card-img-wrap">
+        <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/c6eb34a5-6f93-4b1b-8b3d-e685a1316031_zingy_parcel_nv_side.webp?ver=V0.0.1" alt="Taco Mexicana Veg" />
+        <span class="bestseller-badge">BESTSELLER</span>
+      </div>
+      <div class="garlic-card-content">
+        <div class="garlic-card-title-row">
+          <span class="veg-icon"></span>
+          <span class="garlic-card-title">Taco Mexicana Veg</span>
+        </div>
+        <div class="garlic-card-desc">Truly irresistible! Crispy taco with veg patty & creamy harissa sauce.</div>
+        <div class="garlic-card-bottom-row">
+          <span class="garlic-card-price">₹129</span>
+          <button class="garlic-add-btn">Add +</button>
+        </div>
+      </div>
+    </div>
+    <!-- Add more cards as needed -->
+  </div>
+</section>
+
+
+
+
+
+   
+
+
+
+
+    </div>
+    </div>
+    </div>
+    </header>
+
+
+
+    <!-- Menu Section -->
+
+    
+    <section id="menu" class="menu">
+        <section class="popular-categories">
+  <h2 class="section-title">Popular Categories</h2>
+  <div class="category-container">
+    <div class="category-card" data-category="everyday-value">
+      <img src="https://www.dominos.co.in/great-deals/online-pizza-coupons/images/story_images/evd/evd-199.jpg" alt="Everyday Value">
+      <h3>Everyday Value</h3>
+    </div>
+    <div class="category-card" data-category="cheese-burst">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/2fe42a32-0138-4612-b3a9-1f8aacb0b5b5_FullsizeThe5FeastChickenCB.jpg?ver=V0.0.1" alt="Cheese Burst">
+      <h3>Cheese Burst</h3>
+    </div>
+    <div class="category-card" data-category="sides-drinks">
+      <img src="https://images.dominos.co.in/nextgen-catalog/media/prod/Dominos/WebHomeProductV1/28fe8f9d-0d4a-4549-aaee-7901431880d6_CokeZeroHomeProductV1.jpg?ver=V0.0.1" alt="Sides & Drinks">
+      <h3>Sides & Drinks</h3>
+    </div>
+  </div>
+</section>
+
+<section class="combo-section">
+  <h2 class="section-title">Fixed-Size Combos</h2>
+  <div class="combo-container">
+    <div class="combo-card">
+      <img src="https://www.dominos.co.in/files/items/CreamyTomatoVeg_N_(3).jpg" alt="Veggie Feast Combo">
+      <h3>Veggie Feast Combo</h3>
+      <div class="price">
+        <span class="amount">₹399</span>
+        <span class="tax">+ Tax</span>
+      </div>
+    </div>
+    <div class="combo-card">
+      <img src="https://www.dominos.co.in//files/items/_1346164951.jpg" alt="Cheesy Lovers Combo">
+      <h3>Cheesy Lovers Combo</h3>
+      <div class="price">
+        <span class="amount">₹499</span>
+        <span class="tax">+ Tax</span>
+      </div>
+    </div>
+    <div class="combo-card">
+      <img src="https://www.dominos.co.in/files/items/Burger_Pizza_Non.jpg" alt="Party Pack Combo">
+      <h3>Party Pack Combo</h3>
+      <div class="price">
+        <span class="amount">₹699</span>
+        <span class="tax">+ Tax</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+        <div class="container">
+            <h2>Domino's Pizza</h2>
+
+            <div class="menu__categories">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="veg">Veg Pizzas</button>
+                <button class="category-btn" data-category="nonveg">Non-Veg Pizzas</button>
+                <button class="category-btn" data-category="sides">Sides</button>
+                <button class="category-btn" data-category="desserts">Desserts</button>
+                <button class="category-btn" data-category="beverages">Beverages</button>
+            </div>
+
+            <div class="menu__items" id="menuItems">
+                <!-- Menu items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+
+<div id="coupon-popup" class="coupon-popup">
+  <div class="coupon-box">
+    <h2>🎟️ Coupons</h2>
+    <button id="close-coupons">&times;</button>
+
+    <div class="coupon-list">
+
+      <div class="coupon-card">
+        <div class="left">
+          <div class="code">DEAL80</div>
+          <p>Up to ₹80 Off on orders worth ₹249 or more</p>
+          <a href="#">More details ⌟</a>
+        </div>
+        <div class="right">
+          <small>Save up to ₹80 with this offer</small>
+          <button class="apply-btn">Apply</button>
+        </div>
+      </div>
+
+      <div class="coupon-card">
+        <div class="left">
+          <div class="code">CHEESY80</div>
+          <p>Up to ₹80 Off on Cheese Orders ₹249+</p>
+          <a href="#">More details ⌟</a>
+        </div>
+        <div class="right">
+          <small>Save up to ₹80 with this offer</small>
+          <button class="apply-btn">Apply</button>
+        </div>
+      </div>
+
+      <div class="coupon-card">
+        <div class="left">
+          <div class="code">PIZZA30</div>
+          <p>Up to ₹30 Off on orders ₹200+</p>
+          <a href="#">More details ⌟</a>
+        </div>
+        <div class="right">
+          <small>Save up to ₹30 with this offer</small>
+          <button class="apply-btn">Apply</button>
+        </div>
+      </div>
+
+      <div class="coupon-card">
+        <div class="left">
+          <div class="code">DEAL125</div>
+          <p>Up to ₹125 Off on orders ₹699+</p>
+          <a href="#">More details ⌟</a>
+        </div>
+        <div class="right">
+          <small>Save up to ₹125 with this offer</small>
+          <button class="apply-btn">Apply</button>
+        </div>
+      </div>
+
+      <div class="coupon-card">
+        <div class="left">
+          <div class="code">PARTY15</div>
+          <p>₹300 off on orders ₹2000+</p>
+          <a href="#">More details ⌟</a>
+        </div>
+        <div class="right">
+          <small>Save up to ₹300 with this offer</small>
+          <button class="apply-btn">Apply</button>
+        </div>
+      </div>
+
+      <div class="coupon-card">
+        <div class="left">
+          <div class="code">PARTY20</div>
+          <p>₹500 off on orders ₹2500+</p>
+          <a href="#">More details ⌟</a>
+        </div>
+        <div class="right">
+          <small>Save up to ₹500 with this offer</small>
+          <button class="apply-btn">Apply</button>
+        </div>
+      </div>
+
+      <div class="coupon-card">
+        <div class="left">
+          <div class="code">PARTY25</div>
+          <p>₹750 off on orders ₹3000+</p>
+          <a href="#">More details ⌟</a>
+        </div>
+        <div class="right">
+          <small>Save up to ₹750 with this offer</small>
+          <button class="apply-btn">Apply</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal__content">
+            <div class="cart-modal__header">
+                <h3>Your Cart</h3>
+                <button class="close-btn" id="closeCart">×</button>
+            </div>
+            <div class="cart-modal__body" id="cartItems">
+                <p class="empty-cart">Your cart is empty</p>
+            </div>
+            <div class="cart-modal__footer">
+                <div class="cart-total">
+                    <div class="total-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">₹0</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Taxes:</span>
+                        <span id="taxes">₹0</span>
+                    </div>
+                    <div class="total-row total-final">
+                        <span>Total:</span>
+                        <span id="total">₹0</span>
+                    </div>
+                </div>
+                <div class="promo-section">
+                    <input type="text" placeholder="Enter promo code" class="promo-input" id="promoInput">
+                    <button class="btn btn--outline btn--sm" id="applyPromo">Apply</button>
+                </div>
+                <button class="btn btn--primary btn--full-width checkout-btn" id="checkoutBtn">Proceed to
+                    Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pizza Customization Modal -->
+    <div class="pizza-modal" id="pizzaModal">
+        <div class="pizza-modal__content">
+            <div class="pizza-modal__header">
+                <h3 id="pizzaModalTitle">Customize Your Pizza</h3>
+                <button class="close-btn" id="closePizzaModal">×</button>
+            </div>
+            <div class="pizza-modal__body">
+                <div class="pizza-image">
+                    <img id="pizzaModalImage" src="" alt="Pizza">
+                </div>
+                <div class="customization-options">
+                    <div class="option-group">
+                        <h4>Choose Size</h4>
+                        <div class="size-options">
+                            <label class="size-option">
+                                <input type="radio" name="size" value="regular" checked>
+                                <span class="size-label">Regular <span class="size-price">₹0</span></span>
+                            </label>
+                            <label class="size-option">
+                                <input type="radio" name="size" value="medium">
+                                <span class="size-label">Medium <span class="size-price">₹0</span></span>
+                            </label>
+                            <label class="size-option">
+                                <input type="radio" name="size" value="large">
+                                <span class="size-label">Large <span class="size-price">₹0</span></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h4>Choose Crust</h4>
+                        <select class="form-control" id="crustSelect">
+                            <option value="Classic Hand Tossed">Classic Hand Tossed</option>
+                            <option value="Cheese Burst">Cheese Burst (+₹50)</option>
+                            <option value="New Hand Tossed">New Hand Tossed</option>
+                            <option value="Wheat Thin Crust">Wheat Thin Crust</option>
+                            <option value="Fresh Pan Pizza">Fresh Pan Pizza</option>
+                        </select>
+                    </div>
+
+                    <div class="pizza-price">
+                        <span class="current-price">₹<span id="currentPrice">0</span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="pizza-modal__footer">
+                <button class="btn btn--primary btn--full-width" id="addToCartBtn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+
+    
+   
+
+    <footer class="sticky-footer">
+        <div class="footer-nav">
+            <div class="footer-item" id="menu-btn"><a href="#menu"> <img src="menu.png" alt=""></a></div>
+            <div class="footer-item" id="offers-btn"><img src="offers.png" alt=""></div>
+            <button class="cart-btn" id="cartBtn">
+                🛒 <span class="cart-count" id="cartCount">0</span>
+            </button>
+            
+                <!-- 📹 Reel Viewer -->
+<div id="reelModal" class="reel-modal hidden">
+  <div class="reel-modal-content">
+    <span id="closeReel" class="close-btn">&times;</span>
+    
+    <iframe
+      id="reelViewer"
+      src=""
+      frameborder="0"
+      allowfullscreen
+      width="100%"
+      height="500px">
+    </iframe>
+
+    <!-- 👇 Navigation -->
+    <div class="reel-nav">
+      <button id="prevReel">◀</button>
+      <button id="nextReel">▶</button>
+    </div>
+  </div>
+</div>
+
+<!-- 🎬 Button to Open Reel Viewer -->
+<button id="openReels" class="reel-button">Domino's Reels</button>
+        </div>
+    </footer>
+
+ 
+<!-- Order Confirmation Modal -->
+<div id="orderModal" class="order-modal">
+<div class="modal-content">
+<div class="order-success">
+<div class="success-icon">✓</div>
+<h2>Order Placed Successfully!</h2>
+<p>Your order #<span id="orderNumber"></span> has been confirmed</p>
+<div class="delivery-info">
+<p>Estimated delivery time: <strong>30-45 minutes</strong></p>
+<p>You will receive SMS updates on your order status</p>
+</div>
+<button class="track-order-btn" onclick="trackOrder()">Track Order</button>
+<button class="new-order-btn" onclick="newOrder()">Place New Order</button>
+</div>
+</div>
+</div>
+
+
+    <script src="app.js"></script>
+   
+</body>
+
+</html>
